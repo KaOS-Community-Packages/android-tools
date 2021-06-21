@@ -1,12 +1,12 @@
 pkgname=android-tools
-pkgver=30.0.5
+pkgver=31.0.2
 pkgrel=1
 pkgdesc="Android platform tools (adb, fastboot)"
 arch=('any')
 url="https://developer.android.com/studio/releases/platform-tools.html"
 license=('Apache')
 source=("https://dl.google.com/android/repository/platform-tools_r$pkgver-linux.zip")
-md5sums=('2b7d644ab9f020faffe782a3a35cb6e7')
+md5sums=('bae89b7e9d2509a2b35275f4d470892b')
 
 package() {
     cd ${srcdir}/platform-tools
