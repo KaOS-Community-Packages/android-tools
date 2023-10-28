@@ -1,17 +1,25 @@
 pkgname=android-tools
-pkgver=34.0.1
+_pkgname=platform-tools
+pkgver=34.0.5
 pkgrel=1
-pkgdesc="Android platform tools (adb, fastboot)"
-arch=('any')
-url="https://developer.android.com/studio/releases/platform-tools.html"
-license=('Apache')
-source=("https://dl.google.com/android/repository/platform-tools_r$pkgver-linux.zip")
-md5sums=('6264f172c25bfabf1d62bab7964d92ba')
+pkgdesc='Android platform tools from Google'
+arch=('x86_64')
+url='http://tools.android.com/'
+license=('custom' 'Apache')
+depends=('libzip')
+makedepends=('unzip')
+optdepends=('android-udev-rules: Files to enable communication between PC and Android smartphones')
+source=("${_pkgname}-latest-linux.zip::https://dl.google.com/android/repository/${_pkgname}-latest-linux.zip")
+sha256sums=('SKIP')
 
 package() {
-    cd ${srcdir}/platform-tools
-    install -dm755 "${pkgdir}/usr/bin"
-    install -Dm755 "adb" "${pkgdir}/usr/bin/adb"
-    install -Dm755 "fastboot" "${pkgdir}/usr/bin/fastboot"
+    cd ${_pkgname}
+    install -dm755 -v "${pkgdir}/opt/${pkgname}"
+    install -dm755 -v "${pkgdir}/opt/${pkgname}/lib64"
+    install -dm755 -v "${pkgdir}/usr/bin"
+    install -dm755 -v "${pkgdir}/lib64"
+    install -Dm755 -v {adb,etc1tool,fastboot,hprof-conv,make_f2fs,make_f2fs_casefold,mke2fs} -t "${pkgdir}/usr/bin/"
+    install -Dm755 -v "lib64/libc++.so" -t "${pkgdir}/lib64"
+    install -Dm755 -v "NOTICE.txt" -t "${pkgdir}/usr/share/licenses/${pkgname}"
+    cp -av ${srcdir}/${_pkgname}/. "${pkgdir}/opt/${pkgname}"
 }
-
