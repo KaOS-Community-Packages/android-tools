@@ -1,6 +1,6 @@
 # Android Tools (Platform Tools)
 
-##### [HOME](http://tools.android.com/) | [SOURCE](https://github.com/KaOS-Community-Packages/android-tools)
+#### [HOME](http://tools.android.com/) | [SOURCE](https://github.com/nmeum/android-tools)
 
 ### Install:
 
@@ -11,5 +11,5 @@ Android SDK Platform-Tools is a component for the Android SDK. It includes tools
 
 Although some new features in `adb` and `fastboot` are available only for recent versions of Android, they're backward compatible, so you should only need the latest version of the SDK Platform-Tools and should file bugs if you find exceptions.
 
-##### *This package might need `android-udev-rules` as dependency, can be obtained using `kcp -i android-udev-rules`
+##### *This package might need `android-udev-rules` as dependency, can be obtained using `kcp -i android-udev-rules`*
 ##### *This package is a dependency for `scrcpy`*
